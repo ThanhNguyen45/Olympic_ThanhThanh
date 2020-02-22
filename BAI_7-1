@@ -1,0 +1,31 @@
+var
+    f:text;
+    n:longint; kt :boolean;
+    function nt(x:longint):boolean;
+    var
+        i: longint;
+    begin
+        nt:= false;
+        for i:= 2 to trunc(sqrt(x)) do
+            if x mod i = 0 then
+                break;
+        if i = trunc(sqrt(x)) then
+            nt:=true;
+    end;
+begin
+    assign(f,'timso.int');
+    reset(f);
+    readln(f,n);
+    close(f);
+    assign(f,'timso.out');
+    rewrite(f);
+    kt:= false ;
+    while kt = false do
+    begin
+        inc(n);
+        if nt(n)= true then
+            kt:= true;
+    end;
+    write(f,n);
+    close(f);
+end.
